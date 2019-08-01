@@ -2,15 +2,15 @@
 <html>
 <body>
 
-<h2>My First Web Page</h2>
-<p>My first paragraph.</p>
+<h2>External JavaScript</h2>
 
-<p>Never call document.write after the document has finished loading.
-It will overwrite the whole document.</p>
+<p id="demo">A Paragraph.</p>
 
-<script>
-document.write(10 + 12);
-</script>
+<button type="button" onclick="myFunction()">Try it</button>
+
+<p>(myFunction is stored in an external file called "gc_test.js")</p>
+
+<script src="myScript.js"></script>
 
 </body>
-</html> 
+</html>
