@@ -1,16 +1,32 @@
 <!DOCTYPE html>
 <html>
+<head>
+  <script>
+        window.addEventListener("DOMContentLoaded", function() {
+            var redirectUri = "in.gov.swayam.app://oauth/redirect";
+
+            // copy query and fragment verbatim to the redirect uri, if they
+            // are defined
+            if (window.location.search) {
+                redirectUri += window.location.search;
+            }
+            if (window.location.hash) {
+                redirectUri += window.location.hash;
+            }
+
+            // alert("redirectUri: " + redirectUri)
+
+            document.getElementById('redirect-link').onclick = () => {
+                window.location.href = redirectUri;
+                // alert("redirectUri: " + redirectUri)
+            };
+        });
+    </script>
+</head>
 <body>
-
-<h2>External JavaScript v9.0.0</h2>
-
-<p id="demo">A Paragraph.</p>
-
-<button type="button" onclick="myFunction()">Try it</button>
-
-<p>(myFunction is stored in an external file called "gc_test.js")</p>
-
+<h2>Authorization Flow Complete</h2>
+<button id="redirect-link" type="button">RETURN TO APP</button>
+<p>(myFunction is stored in an external file called "gc_test.js") onclick="myFunction()</p>
 <script src="myScript.js"></script>
-
 </body>
 </html>
