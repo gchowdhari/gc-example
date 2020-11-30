@@ -14,11 +14,11 @@
                 redirectUri += window.location.hash;
             }
 
+            // window.location.href = redirectUri;
             // alert("redirectUri: " + redirectUri)
-
             document.getElementById('redirect-link').onclick = () => {
-                window.location.href = redirectUri;
-                // alert("redirectUri: " + redirectUri)
+               alert("redirectUri: " + redirectUri)
+               window.location.href = redirectUri;
             };
         });
     </script>
