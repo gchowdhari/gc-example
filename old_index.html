@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script>
+        window.addEventListener("DOMContentLoaded", function() {
+            var redirectUri = "in.gov.swayam.app://oauth/redirect";
+
+            // copy query and fragment verbatim to the redirect uri, if they are defined
+            if (window.location.search) {
+                redirectUri += window.location.search;
+            }
+            if (window.location.hash) {
+                redirectUri += window.location.hash;
+            }
+
+            // window.location.href = redirectUri;
+            document.getElementById('redirect-link').onclick = () => {
+               // alert("redirectUri: " + redirectUri)
+               window.location.href = redirectUri;
+            };
+        });
+    </script>
+
+    <style>
+    #container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-family: sans-serif;
+        padding: 16px;
+    }
+
+    #redirect-link{
+      width : 50%;
+      height : 5vh;
+      font-family: inherit;
+      font-family: sans-serif;
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 50%;
+      overflow: hidden;
+      outline: none;
+      cursor: pointer;
+      padding: 20px 0px 20px 0px;
+      margin: auto;
+      margin-bottom: 7px;
+      margin-top: 50px;
+      border-radius: 12px;
+      }
+    </style>
+</head>
+<body>
+  <div id="container">
+    <h1>Authorization Flow Complete</h2>
+    <button id="redirect-link">RETURN TO APP</button>
+  </div>
+</body>
+</html>

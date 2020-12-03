@@ -1,58 +1,178 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <script>
-        window.addEventListener("DOMContentLoaded", function() {
-            var redirectUri = "in.gov.swayam.app://oauth/redirect";
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+<title>Swayam Central</title>
+<!-- Latest compiled and minified CSS and JS -->
+<link rel="stylesheet" href="https://storage.googleapis.com/swayam2_central/assets/css/swayam_css/bootstrap.min.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<style>
 
-            // copy query and fragment verbatim to the redirect uri, if they are defined
-            if (window.location.search) {
-                redirectUri += window.location.search;
-            }
-            if (window.location.hash) {
-                redirectUri += window.location.hash;
-            }
+@import url('https://storage.googleapis.com/swayam2_central/assets/css/swayam_css/roboto.css');
 
-            // window.location.href = redirectUri;
-            document.getElementById('redirect-link').onclick = () => {
-               // alert("redirectUri: " + redirectUri)
-               window.location.href = redirectUri;
-            };
-        });
-    </script>
+header {
+	position: fixed;
+	width: 100%;
+	background-color: #ffffff;
+	z-index: 1000;
+	top: 0;
+	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+}
 
-    <style>
-    #container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        font-family: sans-serif;
-        padding: 16px;
-    }
+.top-bar {
+	padding: 5px 0;
+	color: #333333;
+	font-size: 10px;
+	font-weight: 500
+}
 
-    #redirect-link{
-      width : 50%;
-      height : 5vh;
-      font-family: inherit;
-      font-family: sans-serif;
-      font-size: 20px;
-      font-weight: 500;
-      line-height: 50%;
-      overflow: hidden;
-      outline: none;
-      cursor: pointer;
-      padding: 20px 0px 20px 0px;
-      margin: auto;
-      margin-bottom: 7px;
-      margin-top: 50px;
-      border-radius: 12px;
-      }
-    </style>
+.navbar-brand{
+	padding: 0;
+	float: none;
+}
+
+@media (max-width: 767px) {
+	.top-left {
+		text-align: center
+	}
+}
+
+body {
+	background: #fff;
+	font-family: 'Roboto-Regular';
+	color: #666666;
+	line-height: 22px;
+	font-size: 12px;
+	position: relative;
+	min-height: 100vh;
+}
+
+img {
+    max-width: 100%;
+}
+
+.redirectMessage {
+    font-size: 24px;
+    font-weight: 300;
+    line-height: 32px;
+    color: #666666;
+}
+
+.btn-outline {
+	padding: 10px 20px 10px 20px;
+	min-width: 90px;
+	background: #FFFFFF;
+	border-radius: 50px;
+	font-size: 12px;
+	margin: 15px 12px 15px 0px;
+	border: #0099cc 1px solid;
+	color: #0099cc;
+	text-transform: uppercase;
+	font-style: normal;
+	letter-spacing: 2px
+}
+
+.btn-outline:hover,
+.btn-outline:focus {
+	background: #0099cc;
+	color: #FFFFFF;
+	outline: none;
+}
+.main{
+	position: absolute;
+	bottom: 0px;
+	width: 100%;
+}
+
+#footer {
+	padding-top: 3px;
+	padding-bottom: 2px;
+	color: #FFFFFF;
+	background: #333333;
+	font-size: 10px;
+	font-weight: 500;
+	min-height: 30px;
+}
+
+#footer div {
+	font-family: Roboto-Light;
+	font-size: 12px;
+}
+
+@media (max-width: 767px) {
+	#footer div {
+		float: none !important;
+		text-align: center;
+	}
+}
+
+</style>
+<script>
+			window.addEventListener("DOMContentLoaded", function() {
+					var redirectUri = "in.gov.swayam.app://oauth/redirect";
+
+					// copy query and fragment verbatim to the redirect uri, if they are defined
+					if (window.location.search) {
+							redirectUri += window.location.search;
+					}
+					if (window.location.hash) {
+							redirectUri += window.location.hash;
+					}
+
+					// window.location.href = redirectUri;
+					document.getElementById('redirect-link').onclick = () => {
+						 alert("redirectUri: " + redirectUri)
+						 window.location.href = redirectUri;
+					};
+			});
+	</script>
 </head>
-<body>
-  <div id="container">
-    <h1>Authorization Flow Complete</h2>
-    <button id="redirect-link">RETURN TO APP</button>
+<body class="homepage">
+<header id="header">
+  <!--Top Bar [START]-->
+  <div class="top-bar">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 top-left">
+              <a class="navbar-brand" href="#">
+                  <img src="https://storage.googleapis.com/swayam2_central/assets/img/swayam_images/swayam_logo.png" alt="swayam-logo">
+              </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  <!--Top Bar [END]-->
+</header>
+<div style="padding-top: 62px;"></div>
+<div class="container" style="padding-top: 70px;">
+  <div class="row">
+    <div class="col-xs-12 text-center">
+			<h1>Authorization Complete</h2>
+			<div class="redirectMessage">If you are not automatically redirected to application,</div>
+		  <button id="redirect-link" class="btn btn-outline btn-lg">Click Here</button>
+    </div>
   </div>
+</div>
+
+<section class="main">
+
+<!--/#bottom-->
+<footer id="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6"> &copy; 2020 SWAYAM. All rights reserved. </div>
+      <div class="col-sm-6">
+        <div class="pull-right"> Initiative by : MHRD ( Govt of India) </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<!--/#footer-->
+
+</section>
+
 </body>
 </html>
